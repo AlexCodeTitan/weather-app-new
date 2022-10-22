@@ -1,0 +1,144 @@
+.navbar .nav-div {
+  /* background: rgba(255, 255, 255, 0.082); */
+  width: 550px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--mid-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-icon {
+  color: var(--light-blue);
+}
+
+/* .nav-item {
+  margin-right: 65px;
+} */
+
+.search {
+  width: 30vw;
+  border: none;
+  color: var(--dark-blue);
+  background: var(--mid-blue);
+  padding: 0;
+}
+
+.profile img {
+  transition: 0.5s;
+}
+
+/* SearchBar */
+
+/* .search-bar {
+  width: 500px;
+  height: 50px !important;
+  background: var(--mid-blue) !important;
+  overflow: hidden;
+} */
+
+.search-bar input:focus {
+  outline: none;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--light-blue);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--light-blue);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--light-blue);
+}
+
+/* Theme and Profile */
+
+.theme-switch {
+  width: 300px;
+  height: 35px;
+}
+
+.sun-open {
+  margin-right: 8px;
+  background: var(--highlight-blue);
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.sun-close {
+  width: 35px;
+  height: 35px;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.moon-open {
+  margin-left: 10px;
+  background: var(--highlight-blue);
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.moon-close {
+  width: 35px;
+  height: 35px;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.close *:first-child {
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+}
+
+.theme-bar {
+  width: 90px;
+  height: 35px;
+  background: var(--dark-blue);
+  border: 10px solid var(--mid-blue);
+  border-radius: 30px;
+  position: absolute;
+  z-index: 1;
+}
+
+.profile img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+/* HOVER */
+
+.nav-item:hover {
+  background: var(--highlight-blue);
+}
+
+.nav-btn:hover .nav-icon {
+  color: var(--white-blue);
+}
+
+.profile img:hover {
+  transform: scale(130%);
+  transition: 0.5s;
+}
+
+.nav-location:hover {
+  background: none !important;
+}
