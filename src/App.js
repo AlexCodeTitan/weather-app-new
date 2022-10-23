@@ -133,7 +133,7 @@ function App() {
             <div className="weather-map">
               <span className="map-btn-container d-flex flex-column justify-content-start align-items-center">
                 <button
-                  className="map-btn"
+                  className="map-btn d-flex justify-content-center align-items-center"
                   onClick={handleShowMapTemp}
                   style={
                     showMapTemp
@@ -141,10 +141,10 @@ function App() {
                       : { backgroundColor: "var(--dark-blue)" }
                   }
                 >
-                  <WiThermometer size={40} />
+                  <WiThermometer size={35} />
                 </button>
                 <button
-                  className="map-btn"
+                  className="map-btn d-flex justify-content-center align-items-center"
                   onClick={handleShowMapClouds}
                   style={
                     showMapClouds
@@ -152,10 +152,10 @@ function App() {
                       : { backgroundColor: "var(--dark-blue)" }
                   }
                 >
-                  <WiCloudy size={40} />
+                  <WiCloudy size={35} />
                 </button>
                 <button
-                  className="map-btn"
+                  className="map-btn d-flex justify-content-center align-items-center"
                   onClick={handleShowMapPrecip}
                   style={
                     showMapPrecip
@@ -166,7 +166,7 @@ function App() {
                   <WiRaindrops size={45} />
                 </button>
                 <button
-                  className="map-btn"
+                  className="map-btn d-flex justify-content-center align-items-center"
                   onClick={handleShowMapWind}
                   style={
                     showMapWind
@@ -174,7 +174,7 @@ function App() {
                       : { backgroundColor: "var(--dark-blue)" }
                   }
                 >
-                  <WiStrongWind size={40} />
+                  <WiStrongWind size={35} />
                 </button>
               </span>
               <img

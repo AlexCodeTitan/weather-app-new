@@ -65,15 +65,13 @@ const PrecipChart = ({ data }) => {
   ];
 
   return (
-    <div className="d-flex flex-column minute-forecast-container">
-      <h3 className="chart-title mt-3">
-        Precipitation forecast for the next hour
-      </h3>
+    <div className="d-flex flex-column align-items-center justify-content-center minute-forecast-container">
+      <h3 className="chart-title mt-1">Rain forecast for the next hour</h3>
       <div className="precip-chart">
         <ResponsiveLine
           colors={{ scheme: "dark2" }}
           data={DataChart}
-          margin={{ top: 60, right: 30, bottom: 40, left: 60 }}
+          margin={{ top: 50, right: 10, bottom: 20, left: 40 }}
           xScale={{ type: "point" }}
           yScale={{
             type: "linear",

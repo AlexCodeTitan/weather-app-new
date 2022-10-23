@@ -1,15 +1,15 @@
 .minute-forecast-container {
-  width: 800px;
-  height: 420px;
+  width: 690px;
+  height: 320px;
   border-radius: 30px;
-  margin-left: 100px;
+  margin-left: 50px;
   background: var(--mid-blue);
   overflow: hidden;
 }
 
 .precip-chart {
-  width: 800px;
-  height: 380px;
+  width: 650px;
+  height: 320px;
 }
 
 .chart-title {
