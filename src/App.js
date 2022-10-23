@@ -3,12 +3,19 @@ import "./App.css";
 
 import Navbar from "./Components/Navbar/Navbar";
 import WeatherData from "./Components/WeatherData/WeatherData";
-import WorldMap from "./Components/Images/Mercator_projection_Square.JPG";
+import WorldMap from "./Components/Images/Mercator_projection_Square-2.JPG";
 
 // Import api variables
 import { WEATHER_API_KEY, WEATHER_API_URL, WEATHER_MAP_URL } from "./api";
 import Loader from "./Components/Loader/Loader";
 import TempChart from "./Components/TempChart/TempChart";
+import {
+  WiCelsius,
+  WiCloudy,
+  WiRaindrops,
+  WiStrongWind,
+  WiThermometer,
+} from "react-icons/wi";
 
 const weatherMapTemp = `${WEATHER_MAP_URL}/temp_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
 const weatherMapClouds = `${WEATHER_MAP_URL}/clouds_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
@@ -116,18 +123,50 @@ function App() {
         </div>
         <div className="weather-map-container">
           <div className="weather-map">
-            <span className="map-btn-container d-flex justify-content-center align-items-center">
-              <button className="map-btn" onClick={handleShowMapTemp}>
-                Temperature
+            <span className="map-btn-container d-flex flex-column justify-content-start align-items-center">
+              <button
+                className="map-btn"
+                onClick={handleShowMapTemp}
+                style={
+                  showMapTemp
+                    ? { backgroundColor: "var(--highlight-blue)" }
+                    : { backgroundColor: "var(--dark-blue)" }
+                }
+              >
+                <WiThermometer size={40} />
               </button>
-              <button className="map-btn" onClick={handleShowMapClouds}>
-                Clouds
+              <button
+                className="map-btn"
+                onClick={handleShowMapClouds}
+                style={
+                  showMapClouds
+                    ? { backgroundColor: "var(--highlight-blue)" }
+                    : { backgroundColor: "var(--dark-blue)" }
+                }
+              >
+                <WiCloudy size={40} />
               </button>
-              <button className="map-btn" onClick={handleShowMapPrecip}>
-                Precipitation
+              <button
+                className="map-btn"
+                onClick={handleShowMapPrecip}
+                style={
+                  showMapPrecip
+                    ? { backgroundColor: "var(--highlight-blue)" }
+                    : { backgroundColor: "var(--dark-blue)" }
+                }
+              >
+                <WiRaindrops size={45} />
               </button>
-              <button className="map-btn" onClick={handleShowMapWind}>
-                Wind
+              <button
+                className="map-btn"
+                onClick={handleShowMapWind}
+                style={
+                  showMapWind
+                    ? { backgroundColor: "var(--highlight-blue)" }
+                    : { backgroundColor: "var(--dark-blue)" }
+                }
+              >
+                <WiStrongWind size={40} />
               </button>
             </span>
             <img
