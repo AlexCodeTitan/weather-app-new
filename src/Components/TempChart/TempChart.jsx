@@ -52,10 +52,6 @@ const TempChart = ({ data }) => {
           x: forecastDays[5],
           y: data.daily[5].temp.day,
         },
-        {
-          x: forecastDays[6],
-          y: data.daily[7].temp.day,
-        },
       ],
     },
   ];
@@ -63,57 +59,59 @@ const TempChart = ({ data }) => {
   console.log(data);
 
   return (
-    <div className="chart">
-      <ResponsiveLine
-        colors={{ scheme: "category10" }}
-        data={DataChart}
-        margin={{ top: 60, right: 30, bottom: 30, left: 40 }}
-        xScale={{ type: "point" }}
-        yScale={{
-          type: "linear",
-          min: "auto",
-          max: "auto",
-          stacked: true,
-          reverse: false,
-        }}
-        axisTop={null}
-        axisRight={null}
-        pointSize={10}
-        pointColor={{ from: "color", modifiers: [] }}
-        pointBorderWidth={2}
-        pointBorderColor={{ from: "serieColor" }}
-        pointLabelYOffset={-12}
-        useMesh={true}
-        theme={{
-          background: "#33333300",
-          textColor: "#ffffff",
-          fontSize: 11,
-          axis: {
-            domain: {
-              line: {
-                stroke: "#777777",
-                strokeWidth: 1,
+    <div className="chart-wrapper">
+      <div className="chart">
+        <ResponsiveLine
+          colors={{ scheme: "set1" }}
+          data={DataChart}
+          margin={{ top: 30, right: 50, bottom: 50, left: 50 }}
+          xScale={{ type: "point" }}
+          yScale={{
+            type: "linear",
+            min: "auto",
+            max: "auto",
+            stacked: true,
+            reverse: false,
+          }}
+          axisTop={null}
+          axisRight={null}
+          pointSize={10}
+          pointColor={{ from: "color", modifiers: [] }}
+          pointBorderWidth={2}
+          pointBorderColor={{ from: "serieColor" }}
+          pointLabelYOffset={-12}
+          useMesh={true}
+          theme={{
+            background: "#33333300",
+            textColor: "#ffffff",
+            fontSize: 11,
+            axis: {
+              domain: {
+                line: {
+                  stroke: "#777777",
+                  strokeWidth: 1,
+                },
+              },
+              legend: {
+                text: {
+                  fontSize: 16,
+                  fill: "#ffffff",
+                },
+              },
+              ticks: {
+                line: {
+                  stroke: "#ffffff",
+                  strokeWidth: 1,
+                },
+                text: {
+                  fontSize: 14,
+                  fill: "#ffffff",
+                },
               },
             },
-            legend: {
-              text: {
-                fontSize: 16,
-                fill: "#ffffff",
-              },
-            },
-            ticks: {
-              line: {
-                stroke: "#ffffff",
-                strokeWidth: 1,
-              },
-              text: {
-                fontSize: 14,
-                fill: "#ffffff",
-              },
-            },
-          },
-        }}
-      />
+          }}
+        />
+      </div>
     </div>
   );
 };

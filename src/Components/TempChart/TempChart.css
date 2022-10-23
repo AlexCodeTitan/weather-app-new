@@ -1,5 +1,13 @@
+.chart-wrapper {
+  width: 570;
+  height: 300;
+  margin-top: 50px;
+  border-radius: 30px;
+  background: var(--mid-blue);
+}
+
 .chart {
   width: 570px;
-  height: 370px;
+  height: 330px;
   color: var(--light-blue);
 }

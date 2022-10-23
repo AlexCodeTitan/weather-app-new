@@ -16,6 +16,7 @@ import {
   WiStrongWind,
   WiThermometer,
 } from "react-icons/wi";
+import PrecipChart from "./Components/PrecipChartMinute/PrecipChart";
 
 const weatherMapTemp = `${WEATHER_MAP_URL}/temp_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
 const weatherMapClouds = `${WEATHER_MAP_URL}/clouds_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
@@ -115,81 +116,94 @@ function App() {
             </div>
           )}
         </div>
-        {forecast && <TempChart data={forecast} />}
+        {forecast ? (
+          <TempChart data={forecast} />
+        ) : (
+          <div className="temp-chart-loader d-flex justify-content-center align-items-center">
+            <h3>No data available</h3>
+          </div>
+        )}
       </div>
       <div className="d-flex flex-column justify-content-between align-items-start">
         <div className="map-nav d-flex justify-content-between align-items-center">
           <h2 className="map-title">Global Map</h2>
         </div>
-        <div className="weather-map-container">
-          <div className="weather-map">
-            <span className="map-btn-container d-flex flex-column justify-content-start align-items-center">
-              <button
-                className="map-btn"
-                onClick={handleShowMapTemp}
-                style={
-                  showMapTemp
-                    ? { backgroundColor: "var(--highlight-blue)" }
-                    : { backgroundColor: "var(--dark-blue)" }
-                }
-              >
-                <WiThermometer size={40} />
-              </button>
-              <button
-                className="map-btn"
-                onClick={handleShowMapClouds}
-                style={
-                  showMapClouds
-                    ? { backgroundColor: "var(--highlight-blue)" }
-                    : { backgroundColor: "var(--dark-blue)" }
-                }
-              >
-                <WiCloudy size={40} />
-              </button>
-              <button
-                className="map-btn"
-                onClick={handleShowMapPrecip}
-                style={
-                  showMapPrecip
-                    ? { backgroundColor: "var(--highlight-blue)" }
-                    : { backgroundColor: "var(--dark-blue)" }
-                }
-              >
-                <WiRaindrops size={45} />
-              </button>
-              <button
-                className="map-btn"
-                onClick={handleShowMapWind}
-                style={
-                  showMapWind
-                    ? { backgroundColor: "var(--highlight-blue)" }
-                    : { backgroundColor: "var(--dark-blue)" }
-                }
-              >
-                <WiStrongWind size={40} />
-              </button>
-            </span>
-            <img
-              className={showMapTemp ? "temp-map map" : "hidden"}
-              src={weatherMapTemp}
-            />
-            <img
-              className={showMapClouds ? "clouds-map map" : "hidden"}
-              src={weatherMapClouds}
-            />
-            <img
-              className={showMapPrecip ? "precip-map map" : "hidden"}
-              src={weatherMapPrecip}
-            />
-            <img
-              className={showMapWind ? "wind-map map" : "hidden"}
-              src={weatherMapWind}
-            />
-            <img className="world-map map" src={WorldMap} alt="" />
+        <div className="d-flex flex-row">
+          <div className="weather-map-container">
+            <div className="weather-map">
+              <span className="map-btn-container d-flex flex-column justify-content-start align-items-center">
+                <button
+                  className="map-btn"
+                  onClick={handleShowMapTemp}
+                  style={
+                    showMapTemp
+                      ? { backgroundColor: "var(--highlight-blue)" }
+                      : { backgroundColor: "var(--dark-blue)" }
+                  }
+                >
+                  <WiThermometer size={40} />
+                </button>
+                <button
+                  className="map-btn"
+                  onClick={handleShowMapClouds}
+                  style={
+                    showMapClouds
+                      ? { backgroundColor: "var(--highlight-blue)" }
+                      : { backgroundColor: "var(--dark-blue)" }
+                  }
+                >
+                  <WiCloudy size={40} />
+                </button>
+                <button
+                  className="map-btn"
+                  onClick={handleShowMapPrecip}
+                  style={
+                    showMapPrecip
+                      ? { backgroundColor: "var(--highlight-blue)" }
+                      : { backgroundColor: "var(--dark-blue)" }
+                  }
+                >
+                  <WiRaindrops size={45} />
+                </button>
+                <button
+                  className="map-btn"
+                  onClick={handleShowMapWind}
+                  style={
+                    showMapWind
+                      ? { backgroundColor: "var(--highlight-blue)" }
+                      : { backgroundColor: "var(--dark-blue)" }
+                  }
+                >
+                  <WiStrongWind size={40} />
+                </button>
+              </span>
+              <img
+                className={showMapTemp ? "temp-map map" : "hidden"}
+                src={weatherMapTemp}
+              />
+              <img
+                className={showMapClouds ? "clouds-map map" : "hidden"}
+                src={weatherMapClouds}
+              />
+              <img
+                className={showMapPrecip ? "precip-map map" : "hidden"}
+                src={weatherMapPrecip}
+              />
+              <img
+                className={showMapWind ? "wind-map map" : "hidden"}
+                src={weatherMapWind}
+              />
+              <img className="world-map map" src={WorldMap} alt="" />
+            </div>
           </div>
+          {forecast && forecast.minutely ? (
+            <PrecipChart data={forecast} />
+          ) : (
+            <div className="precip-chart-loader d-flex justify-content-center align-items-center">
+              <h3>No data available</h3>
+            </div>
+          )}
         </div>
-        <div className="col-app col me-5"></div>
-        <div className="col-app col ms-5"></div>
       </div>
     </div>
   );
