@@ -51,6 +51,14 @@
   z-index: 2;
 }
 
+.precip-map {
+  z-index: 3;
+}
+
+.wind-map {
+  z-index: 4;
+}
+
 .world-map {
   filter: brightness(0.7);
 }

@@ -12,6 +12,8 @@ import TempChart from "./Components/TempChart/TempChart";
 
 const weatherMapTemp = `${WEATHER_MAP_URL}/temp_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
 const weatherMapClouds = `${WEATHER_MAP_URL}/clouds_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
+const weatherMapPrecip = `${WEATHER_MAP_URL}/precipitation_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
+const weatherMapWind = `${WEATHER_MAP_URL}/wind_new/0/0/0.png?appid=${WEATHER_API_KEY}`;
 
 function App() {
   // Data for today
@@ -21,6 +23,8 @@ function App() {
   // Map layers hide/unhide
   const [showMapTemp, setShowMapTemp] = useState(true);
   const [showMapClouds, setShowMapClouds] = useState(true);
+  const [showMapPrecip, setShowMapPrecip] = useState(true);
+  const [showMapWind, setShowMapWind] = useState(true);
   // Light/Dark mode handler
   const [lightMode, setLightMode] = useState(false);
 
@@ -30,11 +34,11 @@ function App() {
     const [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(
-      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
 
     const forecastFetch = fetch(
-      `${WEATHER_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+      `${WEATHER_API_URL}/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${WEATHER_API_KEY}&units=metric`
     );
 
     Promise.all([currentWeatherFetch, forecastFetch])
@@ -55,6 +59,14 @@ function App() {
 
   const handleShowMapClouds = () => {
     setShowMapClouds(!showMapClouds);
+  };
+
+  const handleShowMapPrecip = () => {
+    setShowMapPrecip(!showMapPrecip);
+  };
+
+  const handleShowMapWind = () => {
+    setShowMapWind(!showMapWind);
   };
 
   const handleLightMode = () => {
@@ -111,6 +123,12 @@ function App() {
               <button className="map-btn" onClick={handleShowMapClouds}>
                 Clouds
               </button>
+              <button className="map-btn" onClick={handleShowMapPrecip}>
+                Precipitation
+              </button>
+              <button className="map-btn" onClick={handleShowMapWind}>
+                Wind
+              </button>
             </span>
             <img
               className={showMapTemp ? "temp-map map" : "hidden"}
@@ -119,6 +137,14 @@ function App() {
             <img
               className={showMapClouds ? "clouds-map map" : "hidden"}
               src={weatherMapClouds}
+            />
+            <img
+              className={showMapPrecip ? "precip-map map" : "hidden"}
+              src={weatherMapPrecip}
+            />
+            <img
+              className={showMapWind ? "wind-map map" : "hidden"}
+              src={weatherMapWind}
             />
             <img className="world-map map" src={WorldMap} alt="" />
           </div>
